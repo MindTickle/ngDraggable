@@ -247,7 +247,7 @@ angular.module("ngDraggable", [])
                     scope.$apply(function () {
                         onDragSuccessCallback(scope, {$data: _data, $event: evt});
                     });
-                    evt.stopPropagation();
+                    // evt.stopPropagation();
                 };
 
                 var reset = function() {
