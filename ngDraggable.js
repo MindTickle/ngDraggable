@@ -137,7 +137,7 @@ angular.module("ngDraggable", [])
                     }else{
                         onlongpress(evt);
                     }
-
+                    evt.stopPropagation();
                 };
 
                 var cancelPress = function() {
@@ -182,6 +182,7 @@ angular.module("ngDraggable", [])
                     _deregisterRootMoveListener = $rootScope.$on('draggable:_triggerHandlerMove', function(event, origEvent) {
                         onmove(origEvent);
                     });
+                    evt.stopPropagation();
                 };
 
                 var onmove = function (evt) {
@@ -214,6 +215,7 @@ angular.module("ngDraggable", [])
                     moveElement(_tx, _ty);
 
                     $rootScope.$broadcast('draggable:move', { x: _mx, y: _my, tx: _tx, ty: _ty, event: evt, element: element, data: _data, uid: _myid, dragOffset: _dragOffset });
+                    evt.stopPropagation();
                 };
 
                 var onrelease = function(evt) {
@@ -234,6 +236,7 @@ angular.module("ngDraggable", [])
                     }
 
                     _deregisterRootMoveListener();
+                    evt.stopPropagation();
                 };
 
                 var onDragComplete = function(evt) {
@@ -244,6 +247,7 @@ angular.module("ngDraggable", [])
                     scope.$apply(function () {
                         onDragSuccessCallback(scope, {$data: _data, $event: evt});
                     });
+                    evt.stopPropagation();
                 };
 
                 var reset = function() {
