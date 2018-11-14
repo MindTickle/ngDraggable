@@ -266,7 +266,7 @@ angular.module("ngDraggable", [])
                             '-ms-transform': 'matrix(1, 0, 0, 1, ' + x + ', ' + y + ')'
                         });
                     }else{
-                        var width = element[0].offsetWidth;
+                        var width = element[0].getBoundingClientRect().width;
                         element.css({'left':x+'px','top':y+'px', 'position':'fixed', width: width + 'px'});
                     }
                 };
