@@ -166,10 +166,8 @@ angular.module("ngDraggable", [])
                     _mrx = _mx - offset.left;
                     _mry = _my - offset.top;
                     if (_centerAnchor) {
-                        // _tx = _mx - element.centerX - $window.pageXOffset;
-                        // _ty = _my - element.centerY - $window.pageYOffset;
-                        _tx = _mx - element.centerX;
-                        _ty = _my - element.centerY;
+                        _tx = _mx - element.centerX - $window.pageXOffset;
+                        _ty = _my - element.centerY - $window.pageYOffset;
                     } else {
                         _tx = _mx - _mrx - $window.pageXOffset;
                         _ty = _my - _mry - $window.pageYOffset;
@@ -207,10 +205,8 @@ angular.module("ngDraggable", [])
                     _my = ngDraggable.inputEvent(evt).pageY;//ngDraggable.getEventProp(evt, 'pageY');
 
                     if (_centerAnchor) {
-                        // _tx = _mx - element.centerX - _dragOffset.left;
-                        // _ty = _my - element.centerY - _dragOffset.top;
-                        _tx = _mx;
-                        _ty = _my;
+                        _tx = _mx - element.centerX - _dragOffset.left;
+                        _ty = _my - element.centerY - _dragOffset.top;
                     } else {
                         _tx = _mx - _mrx - _dragOffset.left;
                         _ty = _my - _mry - _dragOffset.top;
