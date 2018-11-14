@@ -266,7 +266,8 @@ angular.module("ngDraggable", [])
                             '-ms-transform': 'matrix(1, 0, 0, 1, ' + x + ', ' + y + ')'
                         });
                     }else{
-                        element.css({'left':x+'px','top':y+'px', 'position':'fixed'});
+                        var width = element.offsetWidth;
+                        element.css({'left':x+'px','top':y+'px', 'position':'fixed', width: width + 'px'});
                     }
                 };
                 initialize();
