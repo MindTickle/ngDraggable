@@ -207,8 +207,10 @@ angular.module("ngDraggable", [])
                     _my = ngDraggable.inputEvent(evt).pageY;//ngDraggable.getEventProp(evt, 'pageY');
 
                     if (_centerAnchor) {
-                        _tx = _mx - element.centerX - _dragOffset.left;
-                        _ty = _my - element.centerY - _dragOffset.top;
+                        // _tx = _mx - element.centerX - _dragOffset.left;
+                        // _ty = _my - element.centerY - _dragOffset.top;
+                        _tx = _mx - element.centerX;
+                        _ty = _my - element.centerY;
                     } else {
                         _tx = _mx - _mrx - _dragOffset.left;
                         _ty = _my - _mry - _dragOffset.top;
