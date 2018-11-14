@@ -42,7 +42,7 @@ angular.module("ngDraggable", [])
                 var _dragEnabled = false;
 
                 var _pressTimer = null;
-
+                var width = element[0].getBoundingClientRect().width;
                 var onDragStartCallback = $parse(attrs.ngDragStart) || null;
                 var onDragStopCallback = $parse(attrs.ngDragStop) || null;
                 var onDragSuccessCallback = $parse(attrs.ngDragSuccess) || null;
@@ -266,7 +266,7 @@ angular.module("ngDraggable", [])
                             '-ms-transform': 'matrix(1, 0, 0, 1, ' + x + ', ' + y + ')'
                         });
                     }else{
-                        var width = element[0].getBoundingClientRect().width;
+                        
                         element.css({'left':x+'px','top':y+'px', 'position':'fixed', width: width + 'px'});
                     }
                 };
