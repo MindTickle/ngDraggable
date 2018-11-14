@@ -166,8 +166,10 @@ angular.module("ngDraggable", [])
                     _mrx = _mx - offset.left;
                     _mry = _my - offset.top;
                     if (_centerAnchor) {
-                        _tx = _mx - element.centerX - $window.pageXOffset;
-                        _ty = _my - element.centerY - $window.pageYOffset;
+                        // _tx = _mx - element.centerX - $window.pageXOffset;
+                        // _ty = _my - element.centerY - $window.pageYOffset;
+                        _tx = _mx - element.centerX;
+                        _ty = _my - element.centerY;
                     } else {
                         _tx = _mx - _mrx - $window.pageXOffset;
                         _ty = _my - _mry - $window.pageYOffset;
