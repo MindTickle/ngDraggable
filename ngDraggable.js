@@ -708,6 +708,10 @@ angular.module("ngDraggable", [])
                         if( domElBounds.bottom > containerBounds.bottom - scrollBuffer ) {
                             dragLimitContainer.scrollBy({top: scrollBy, left: 0, behavior: 'smooth'});
                         }
+
+                        if( domElBounds.top < containerBounds.top + scrollBuffer ) {
+                            dragLimitContainer.scrollBy({top: -1 * scrollBy, left: 0, behavior: 'smooth'});
+                        }
                     }
                     if(allowTransform) {
                         element.css({
