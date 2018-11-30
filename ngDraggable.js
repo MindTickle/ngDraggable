@@ -722,7 +722,7 @@ angular.module("ngDraggable", [])
                         });
                     }else{
                         
-                        element.css({'left':x+'px','top':y+'px', 'position':'fixed', width: width + 'px'});
+                        element.css({'left':x+'px','top':y+'px', 'position':'absolute', width: width + 'px'});
                     }
                 };
                 initialize();
