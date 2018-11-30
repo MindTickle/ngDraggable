@@ -701,9 +701,9 @@ angular.module("ngDraggable", [])
                     if( dragLimitContainer ) {
                         var domElBounds = element[0].getBoundingClientRect();
                         containerBounds = dragLimitContainer.getBoundingClientRect();
-                        if( domElBounds.left < containerBounds.left ){
-                            x = containerBounds.x;
-                        }
+                        // if( domElBounds.left < containerBounds.left ){
+                        //     x = containerBounds.x;
+                        // }
 
                         if( domElBounds.bottom > containerBounds.bottom - scrollBuffer ) {
                             dragLimitContainer.scrollBy({top: scrollBy, left: 0, behavior: 'smooth'});
