@@ -46,7 +46,7 @@ angular.module("ngDraggable", [])
                 var onDragStartCallback = $parse(attrs.ngDragStart) || null;
                 var onDragStopCallback = $parse(attrs.ngDragStop) || null;
                 var onDragSuccessCallback = $parse(attrs.ngDragSuccess) || null;
-                var dragLimitContainerClass = $parse(attrs.dragContainer) || null;
+                var dragLimitContainerClass = attrs.dragContainer || null;
                 var dragLimitContainer = dragLimitContainerClass ? document.getElementsByClassName( dragLimitContainerClass )[0] : null;
                 var allowTransform = angular.isDefined(attrs.allowTransform) ? scope.$eval(attrs.allowTransform) : true;
 
