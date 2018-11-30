@@ -46,6 +46,8 @@ angular.module("ngDraggable", [])
                 var onDragStartCallback = $parse(attrs.ngDragStart) || null;
                 var onDragStopCallback = $parse(attrs.ngDragStop) || null;
                 var onDragSuccessCallback = $parse(attrs.ngDragSuccess) || null;
+                var dragLimitContainerClass = $parse(attrs.dragContainer) || null;
+                var dragLimitContainer = dragLimitContainerClass ? document.getElementsByClassName( dragLimitContainerClass )[0] : null;
                 var allowTransform = angular.isDefined(attrs.allowTransform) ? scope.$eval(attrs.allowTransform) : true;
 
                 var getDragData = $parse(attrs.ngDragData);
@@ -257,7 +259,20 @@ angular.module("ngDraggable", [])
                         element.css({'position':'',top:'',left:''});
                 };
 
+                var scrollBuffer = 20;
+                var scrollBy = 50;
                 var moveElement = function (x, y) {
+                    if( dragLimitContainer ) {
+                        var domElBounds = element[0];
+                        containerBounds = dragLimitContainer.getBoundingClientRect();
+                        if( domElBounds.left < containerBounds.left ){
+                            x = containerBounds.x;
+                        }
+
+                        if( domElBounds.bottom > containerBounds.bottom - scrollBuffer ) {
+                            dragLimitContainer.scroll(0, scrollBy);
+                        }
+                    }
                     if(allowTransform) {
                         element.css({
                             transform: 'matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, ' + x + ', ' + y + ', 0, 1)',
