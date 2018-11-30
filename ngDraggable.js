@@ -263,7 +263,7 @@ angular.module("ngDraggable", [])
                 var scrollBy = 50;
                 var moveElement = function (x, y) {
                     if( dragLimitContainer ) {
-                        var domElBounds = element[0];
+                        var domElBounds = element[0].getBoundingClientRect();
                         containerBounds = dragLimitContainer.getBoundingClientRect();
                         if( domElBounds.left < containerBounds.left ){
                             x = containerBounds.x;
