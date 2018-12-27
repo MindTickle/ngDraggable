@@ -596,7 +596,8 @@ angular.module("ngDraggable", [])
                     }
 
 
-                    element.centerX = element[0].offsetWidth / 2;
+                    // element.centerX = element[0].offsetWidth / 2;
+                    element.centerX = ngDraggable.inputEvent(evt).pageX - offset.left;
                     element.centerY = element[0].offsetHeight / 2;
 
                     _mx = ngDraggable.inputEvent(evt).pageX;//ngDraggable.getEventProp(evt, 'pageX');
